@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <form action="{:url('index')}" method="post">
+        <input type="text" name="username" required placeholder="用户名"><br>
+        <input type="hidden" name="__token__" value="{$Request.token}">
+        <input type="password" name="password" required placeholder="密码"><br>
+        <input type="text" name="captcha" required placeholder="验证码"><a href="javascript:void (0)"><img id="imgCtl" src="{:captcha_src()}?ran=" alt=""></a>
+        <input type="submit" value="登录">
+        <input type="reset" value="重置">
+    </form>
+</center>
+</body>
+<script>
+    window.onload = init;
+    function init() {
+        var imgPath = document.getElementById('imgCtl').src;
+        document.getElementById('imgCtl').addEventListener('click',function () {
+            this.src = imgPath + Math.random()*10000;
+        });
+    };
+</script>
+</html>
