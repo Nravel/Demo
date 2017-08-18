@@ -1,20 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>后台登录</title>
+    <!--引人框架资源文件-->
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/static/jquery/jquery.min.js"></script>
+    <script src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
-<body>
-<center>
-    <form action="{:url('index')}" method="post">
-        <input type="text" name="username" required placeholder="用户名"><br>
-        <input type="hidden" name="__token__" value="{$Request.token}">
-        <input type="password" name="password" required placeholder="密码"><br>
-        <input type="text" name="captcha" required placeholder="验证码"><a href="javascript:void (0)"><img id="imgCtl" src="{:captcha_src()}?ran=" alt=""></a>
-        <input type="submit" value="登录">
-        <input type="reset" value="重置">
-    </form>
-</center>
+<body class="body-bgcolor">
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top nav-bgcolor">
+            <h4 class="navbar-text head-title white-font">欢迎登录后台管理界面平台</h4>
+    </nav>
+</header>
+<article>
+    <!--<form action="{:url('index')}" method="post">-->
+    <!--<input type="text" name="username" required placeholder="用户名"><br>-->
+    <!--<input type="hidden" name="__token__" value="{$Request.token}">-->
+    <!--<input type="password" name="password" required placeholder="密码"><br>-->
+    <!--<input type="text" name="captcha" required placeholder="验证码"><a href="javascript:void (0)"><img id="imgCtl" src="{:captcha_src()}?ran=" alt=""></a>-->
+    <!--<input type="submit" value="登录">-->
+    <!--<input type="reset" value="重置">-->
+    <!--</form>-->
+    <div class="media main row login-box nav-bgcolor">
+        <div class="media-left col-lg-4 no-padding-left">
+            <a href="#">
+                <img class="media-object" src="/static/img/login-left.png" alt="...">
+            </a>
+        </div>
+        <div class=" col-lg-8">
+            <div class="media-body">
+                <h4 class="media-heading">用户登录</h4>
+                <form action="{:url('index')}" method="post">
+                    <div class="form-group row">
+                        <div class="col-lg-10 col-lg-offset-1 mg-top-20">
+                            <label class="sr-only">Amount (in dollars)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon icon-style"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+                                <input type="text" name="username" required class="form-control" placeholder="请输入用户名" value="admin">
+                                <input type="hidden" name="__token__" value="{$Request.token}">
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-lg-offset-1 mg-top-20">
+                            <label class="sr-only">Amount (in dollars)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon icon-style"><i class="fa fa-key" aria-hidden="true"></i></div>
+                                <input type="password" name="password" required class="form-control" placeholder="请输入密码" value="admin">
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-lg-offset-1 mg-top-20">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="captcha" required placeholder="验证码"><div class="input-group-addon icon-style no-padding"><a href="javascript:void (0)"><img id="imgCtl" src="{:captcha_src()}?ran=" alt=""></a></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-lg-offset-1 mg-top-10">
+                            <a>忘记密码？</a>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-10 col-lg-offset-1">
+                        <div class="row">
+                            <div class="col-lg-4 col-lg-offset-1">
+                                <button type="submit" class="btn btn-block btn-primary">登录</button>
+                            </div>
+                            <div class="col-lg-4 col-lg-offset-2">
+                                <button type="reset" class="btn btn-block btn-primary pull-right">重置</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</article>
+<footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom nav-bgcolor">
+        <h4 class="navbar-text head-title white-font font-12">广东就手电子商务有限公司&copy;2017</h4>
+    </nav>
+</footer>
 </body>
 <script>
     window.onload = init;

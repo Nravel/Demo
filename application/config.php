@@ -57,7 +57,7 @@ return [
     'controller_suffix'      => false,
 
     // +----------------------------------------------------------------------
-    // | 模块设置
+    // | 验证码格式设置
     // +----------------------------------------------------------------------
     'captcha' => [
         // 验证码字体大小
@@ -67,7 +67,7 @@ return [
         // 关闭验证码杂点
         'useNoise'    =>    false,
         //验证码图片高度
-        'imageH' => 40,
+        'imageH' => 30,
         //验证码图片宽度
         'imageW' => 120,
         //验证成功后是否重置
@@ -160,10 +160,15 @@ return [
         'taglib_begin' => '{',
         // 标签库标签结束标记
         'taglib_end'   => '}',
+        'layout_on'     =>  true,
+        'layout_name'   =>  'layout',
     ],
 
     // 视图输出字符串内容替换
-    'view_replace_str'       => [],
+    'view_replace_str'       => [
+        '__PUBLIC__' => '/Demo/public',
+        '__ROOT__' => '/'
+    ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

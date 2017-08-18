@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <!--引人框架资源文件-->
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/static/jquery/jquery.min.js"></script>
+    <script src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#nav-left>li').click(function (e) {
+                e.preventDefault();
+                $('#nav-left>li').each(function (i,el) {
+                    $(el).removeClass('active');
+                });
+                $(this).addClass('active');
+            })
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top nav-bgcolor">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+                        <!--<span class="sr-only">Toggle navigation</span>-->
+                        <!--<span class="icon-bar"></span>-->
+                        <!--<span class="icon-bar"></span>-->
+                        <!--<span class="icon-bar"></span>-->
+                    <!--</button>-->
+                    <a class="navbar-brand white-font" href="#">ThinkPHP5.0后台Demo</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav"  id="nav-left">
+                        <li class="active"><a class="white-font" href="#">系统管理 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">微信管理</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其它 <span class="caret"></span></a>
+                            <ul class="dropdown-menu left-menu">
+                                <li><a href="#">项目1</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">项目2</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">项目3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:location.reload();"><span class="glyphicon glyphicon-refresh"></span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i>{$Think.session.username}<span class="caret"></span></a>
+                            <ul class="dropdown-menu right-menu">
+                                <li><a href="#"><i class="fa fa-unlock-alt" aria-hidden="true"></i>修改密码</a></li>
+                                <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>更改资料</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    <article>
+        <div class="nav-left">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active"><a href="#">系统配置</a></li>
+                <li role="presentation"><a href="#">系统权限</a></li>
+                <li role="presentation"><a href="#">系统日志</a></li>
+            </ul>
+        </div>
+    </article>
+    <footer>
+        <nav class="navbar navbar-default navbar-fixed-bottom nav-bgcolor">
+            <h4 class="navbar-text head-title white-font font-12">广东就手电子商务有限公司&copy;2017</h4>
+        </nav>
+    </footer>
+</body>
+</html>
