@@ -11,13 +11,16 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#nav-left>li').click(function (e) {
-                e.preventDefault();
-                $('#nav-left>li').each(function (i,el) {
-                    $(el).removeClass('active');
+            function changeActive(obj) {
+                $(obj).click(function (e) {
+                    e.preventDefault();
+                    $(obj).each(function (i,el) {
+                        $(el).removeClass('active');
+                    });
+                    $(this).addClass('active');
                 });
-                $(this).addClass('active');
-            })
+            }
+            changeActive('#nav-left>li');
         });
     </script>
 </head>
