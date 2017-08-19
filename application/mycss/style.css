@@ -1,0 +1,128 @@
+.head-title {
+    position: absolute;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin: auto;
+}
+
+.nav-bgcolor {
+    background-color: rgba(0,153,204,0.5);
+}
+
+.body-bgcolor {
+    background-color: rgba(0,153,204,0.2);
+}
+
+.navbar-text.white-font , .navbar-brand.white-font , .navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-default .navbar-nav>.active>a , .navbar-default .navbar-nav>.active>a:focus , .navbar-default .navbar-nav>.active>a:hover {
+    /*color: rgba(0,153,204,0.5);*/
+    color: white;
+    background-color: rgba(0,153,204,0.2);
+}
+
+.navbar-default .navbar-nav>li>a:hover , .navbar-default .navbar-brand:hover , .navbar-default .navbar-brand:focus , .navbar-default .navbar-nav>.open>a:focus , .navbar-default .navbar-nav>.open>a {
+    color: white;
+    background-color: rgba(0,153,204,0.2);
+}
+
+.navbar-text.font-12 {
+    font-size: 12px;
+}
+
+.main {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 700px;
+    border: 1px solid #e6e6e6;
+    -moz-box-shadow:-1px 2px 5px rgba(133,133,133,0.5);
+    -webkit-box-shadow:-1px 2px 5px rgba(133,133,133,0.5);
+    box-shadow:-1px 2px 5px rgba(133,133,133,0.5);
+    background-color: white;
+}
+
+.main .media-heading {
+    margin-top: 20px;
+    text-align: center;
+    color: #B7883E;
+    font-size: 25px;
+}
+
+.mg-top-20 {
+    margin-top: 20px;
+}
+
+.mg-top-10 {
+    margin-top: 10px;
+}
+
+.mg-b-5 {
+    margin-bottom: 5px;
+}
+
+.icon-style {
+    background-color: white;
+    color: #666;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-padding-left {
+    padding-left: 0;
+}
+
+.left-menu li , .right-menu li {
+    text-align: center;
+}
+
+.left-menu li a , .right-menu li a {
+    font-size: 16px;
+    color: rgba(0,153,204,0.5);
+}
+
+.left-menu li a:hover , .right-menu li a:hover {
+    background-color: rgba(0,153,204,0.5);
+    color: white;
+}
+
+.right-menu li i {
+    margin-right: 10px;
+}
+
+.navbar-fixed-top {
+    border-bottom: none;
+}
+
+.nav-left {
+    margin-top: 50px;
+    position: fixed;
+    width: 220px;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.nav-left li a {
+    color: white;
+    border-radius: 0;
+    text-align: center;
+    background-color: rgba(0,153,204,0.2);
+}
+
+.nav-left li a:hover {
+    background-color: #337ab7;
+}
+
+.nav-left li.active a  {
+    background-color: rgba(0,153,204,0.7);
+}
