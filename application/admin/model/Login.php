@@ -29,7 +29,7 @@ class Login extends \think\Model {
         if ($result) {
             if (md5($request['password']) == $result['password']) {
                 if ($result['status']) {
-                    return $this->setData('用户已登录',1004);
+//                    return $this->setData('用户已登录',1004);
                 }
                 Session::set('username',$request['username']);
                 $admin->save(['ip'=>$request['ip'],'status'=>1],['username'=>$request['username']]);

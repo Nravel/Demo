@@ -27,6 +27,7 @@ class Login extends \think\Controller {
                 $this->success('登录成功','Index/index','',1);
             }
         }else{
+            $this->view->engine->layout(false);
             return $this->fetch('login');
         }
     }

@@ -13,7 +13,7 @@
         $(document).ready(function () {
             function changeActive(obj) {
                 $(obj).click(function (e) {
-                    e.preventDefault();
+//                    e.preventDefault();
                     $(obj).each(function (i,el) {
                         $(el).removeClass('active');
                     });
@@ -21,6 +21,12 @@
                 });
             }
             changeActive('#nav-left>li');
+            changeActive('#accordion .panel-title li');
+            changeActive($('.panel-heading').eq(0).next().find('a'));
+            console.log();
+            $('.panel-heading').click(function () {
+                changeActive($(this).next().find('a'));
+            });
         });
     </script>
 </head>
@@ -58,12 +64,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="javascript:location.reload();"><span class="glyphicon glyphicon-refresh"></span></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i>{$Think.session.username}<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o mg-r-10" aria-hidden="true"></i>{$Think.session.username}<span class="caret"></span></a>
                             <ul class="dropdown-menu right-menu">
                                 <li><a href="#"><i class="fa fa-unlock-alt" aria-hidden="true"></i>修改密码</a></li>
                                 <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>更改资料</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>退出登录</a></li>
+                                <li><a href="{:url('Login/logout')}"><i class="fa fa-sign-out" aria-hidden="true"></i>退出登录</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -74,14 +80,70 @@
     <article>
         <div class="nav-left">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" class="active"><a href="#">系统配置</a></li>
-                <li role="presentation"><a href="#">系统权限</a></li>
-                <li role="presentation"><a href="#">系统日志</a></li>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingOne">
+                            <h4 class="panel-title active">
+                                <li class="active"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-chevron-circle-down mg-r-20" aria-hidden="true"></i>系统配置</a></li>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item active">
+                                        后台首页
+                                    </a>
+                                    <a href="/admin/system/goAction/typeid/12.html" class="list-group-item">配置选项1</a>
+                                    <a href="" class="list-group-item">配置选项2</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <li><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-chevron-circle-down mg-r-20" aria-hidden="true"></i>系统权限</a></li>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item active">
+                                        权限选项1
+                                    </a>
+                                    <a href="#" class="list-group-item">权限选项2</a>
+                                    <a href="" class="list-group-item">权限选项3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingThree">
+                            <h4 class="panel-title">
+                                <li><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-chevron-circle-down mg-r-20" aria-hidden="true"></i>系统日志</a></li>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item active">
+                                        日志选项1
+                                    </a>
+                                    <a href="#" class="list-group-item">日志选项2</a>
+                                    <a href="#" class="list-group-item">日志选项3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul>
+        </div>
+        <div class="main-right">
+            {__CONTENT__}
         </div>
     </article>
     <footer>
-        <nav class="navbar navbar-default navbar-fixed-bottom nav-bgcolor">
+        <nav class="navbar navbar-default navbar-fixed-bottom nav-bgcolor fix-bot-2">
             <h4 class="navbar-text head-title white-font font-12">广东就手电子商务有限公司&copy;2017</h4>
         </nav>
     </footer>
