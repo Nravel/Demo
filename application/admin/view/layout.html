@@ -48,8 +48,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav"  id="nav-left">
-                        <li class="active"><a class="white-font" href="#">系统管理 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">微信管理</a></li>
+                        <li class="{eq name='$type' value='1'}active{/eq}"><a class="white-font" href="{:url('admin/Index/index','type=1')}">系统管理 <span class="sr-only">(current)</span></a></li>
+                        <li class="{eq name='$type' value='2'}active{/eq}"><a href="{:url('admin/Index/index','type=2')}">微信管理</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其它 <span class="caret"></span></a>
                             <ul class="dropdown-menu left-menu">
@@ -81,60 +81,30 @@
         <div class="nav-left">
             <ul class="nav nav-pills nav-stacked">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    {volist name='dataLists' id='datas' key='i'}
+
                     <div class="panel panel-default">
-                        <div class="panel-heading" id="headingOne">
+                        <div class="panel-heading" id="heading{$i}">
                             <h4 class="panel-title active">
-                                <li class="active"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-chevron-circle-down mg-r-20" aria-hidden="true"></i>系统配置</a></li>
+                                <li class="{eq name='$topname' value='$datas.first.typename'}active{/eq}"><a data-toggle="collapse" data-parent="#accordion" href="#collapse{$i}" aria-expanded="true" aria-controls="collapse{$i}"><i class="fa fa-chevron-circle-down mg-r-20" aria-hidden="true"></i>{$datas.first.typename}</a></li>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" aria-labelledby="headingOne">
+                        <div id="collapse{$i}" class="panel-collapse collapse {eq name='$topname' value='$datas.first.typename'}in{/eq}" aria-labelledby="heading{$i}">
                             <div class="panel-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item active">
-                                        后台首页
+                                    {volist name='$datas.twice' id='twices' key='k'}
+
+                                    <a href="{$twices.url}" class="list-group-item {eq name='$typename' value='$twices.typename'}active{/eq}">
+                                        {$twices.typename}
                                     </a>
-                                    <a href="/admin/system/goAction/typeid/12.html" class="list-group-item">配置选项1</a>
-                                    <a href="" class="list-group-item">配置选项2</a>
+                                    {/volist}
+                                    <!--<a href="/admin/system/goAction/typeid/12.html" class="list-group-item">配置选项1</a>-->
+                                    <!--<a href="" class="list-group-item">配置选项2</a>-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTwo">
-                            <h4 class="panel-title">
-                                <li><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-chevron-circle-down mg-r-20" aria-hidden="true"></i>系统权限</a></li>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" aria-labelledby="headingTwo">
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item active">
-                                        权限选项1
-                                    </a>
-                                    <a href="#" class="list-group-item">权限选项2</a>
-                                    <a href="" class="list-group-item">权限选项3</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" id="headingThree">
-                            <h4 class="panel-title">
-                                <li><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-chevron-circle-down mg-r-20" aria-hidden="true"></i>系统日志</a></li>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item active">
-                                        日志选项1
-                                    </a>
-                                    <a href="#" class="list-group-item">日志选项2</a>
-                                    <a href="#" class="list-group-item">日志选项3</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {/volist}
                 </div>
             </ul>
         </div>

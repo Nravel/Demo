@@ -11,13 +11,13 @@ class Index extends Common
      */
     public function  index() {
         $request = Request::instance();
-        $type = $request->get('type',1);
+        $type = $request->param('type',1);
         switch ($type) {
             case '1':
                 $this->redirect('System/index',['type'=>$type]);
             break;
             case '2':
-                $this->redirect('System/index',['type'=>$type]);
+                $this->redirect('WeChat/index',['type'=>$type]);
             break;
         }
 
