@@ -18,7 +18,7 @@ class Index extends Common
             break;
             case '2':
                 $this->redirect('System/index',['type'=>$type]);
-                break;
+            break;
         }
 
     }
